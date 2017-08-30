@@ -1,5 +1,5 @@
 const putGamePiece = function () {
-  $('.coord-1').text('this is working')
+  $('.coord-1').text('x')
   console.log('working in events.js')
 }
 
