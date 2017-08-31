@@ -1,7 +1,20 @@
-const gameArray = [null, null, null, null, null, null, null, null, null]
+let gameArray = [null, null, null, null, null, null, null, null, null]
 console.log(gameArray)
 let userTurn = 'x'
 let thereIsWinner = false
+
+const resetDivs = function () {
+  for (let i = 1; i <= 9; i++) {
+    $('#' + i).text('coord-' + i)
+  }
+}
+const resetGame = function (event) {
+  event.preventDefault()
+  userTurn = 'x'
+  thereIsWinner = false
+  gameArray = [null, null, null, null, null, null, null, null, null]
+  resetDivs()
+}
 const addTokenToArray = function (userClick, userTurn) {
   gameArray[userClick - 1] = userTurn
   return gameArray
@@ -32,9 +45,7 @@ const checkForWinner = function (userTurn) {
     result = true
     if (result === true) {
       thereIsWinner = true
-      console.log(thereIsWinner)
     }
-    console.log('there is a winner' + result)
   }
   return result
 }
@@ -75,5 +86,6 @@ const runGame = function () {
 
 module.exports = {
   userTurn,
-  runGame
+  runGame,
+  resetGame
 }
