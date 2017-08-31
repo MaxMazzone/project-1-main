@@ -1,5 +1,5 @@
 const gameArray = [null, null, null, null, null, null, null, null, null]
-
+console.log(gameArray)
 let userTurn = 'x'
 
 const addTokenToArray = function (userClick, userTurn) {
@@ -16,20 +16,24 @@ const changeTurn = function () {
   return userTurn
 }
 
-const runGame = function (userClick, userTurn) {
-  if (gameArray[userClick - 1] === null) {
+const runGame = function () {
+  if (gameArray[this.id - 1] === null) {
     if (userTurn === 'x') {
-      addTokenToArray(userClick, userTurn)
+      addTokenToArray(this.id, userTurn)
       changeTurn()
+      console.log(gameArray)
     } else {
-      addTokenToArray(userClick, userTurn)
+      addTokenToArray(this.id, userTurn)
       changeTurn()
+      console.log(gameArray)
     }
-  } else if (gameArray[userClick - 1] !== null) {
+  } else if (gameArray[this.id - 1] !== null) {
     console.log('invalid move')
+    console.log(gameArray)
   }
 }
 
 module.exports = {
-  userTurn
+  userTurn,
+  runGame
 }
