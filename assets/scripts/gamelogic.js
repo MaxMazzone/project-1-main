@@ -1,32 +1,35 @@
 const gameArray = [null, null, null, null, null, null, null, null, null]
 
+let userTurn = 'x'
+
 const addTokenToArray = function (userClick, userTurn) {
   gameArray[userClick - 1] = userTurn
   return gameArray
 }
 
+const changeTurn = function () {
+  if (userTurn === 'x') {
+    userTurn = 'o'
+  } else {
+    userTurn = 'x'
+  }
+  return userTurn
+}
+
 const runGame = function (userClick, userTurn) {
-  if (userClick === 1 && gameArray[userClick - 1] === null) {
+  if (gameArray[userClick - 1] === null) {
     if (userTurn === 'x') {
       addTokenToArray(userClick, userTurn)
-      console.log('x is in topleft')
-      userTurn = 'o'
+      changeTurn()
     } else {
       addTokenToArray(userClick, userTurn)
-      console.log('o is on topleft')
-      userTurn = 'x'
-    }
-  } else if (userClick === 2 && gameArray[userClick - 1] === null) {
-    if (userTurn === 'x') {
-      addTokenToArray(userClick, userTurn)
-      console.log('x is in middle left')
-      userTurn = 'o'
-    } else {
-      addTokenToArray(userClick, userTurn)
-      console.log('o is on middle left')
-      userTurn = 'x'
+      changeTurn()
     }
   } else if (gameArray[userClick - 1] !== null) {
     console.log('invalid move')
   }
+}
+
+module.exports = {
+  userTurn
 }

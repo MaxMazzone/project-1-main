@@ -1,6 +1,7 @@
+const gameLogic = require('./gamelogic.js')
 const putGamePiece = function () {
-  $('.coord-1').text('x')
-  console.log('working in events.js')
+  $('.coord-1').text(gameLogic.userTurn)
+  console.log(gameLogic.userTurn)
 }
 
 $(() => {
