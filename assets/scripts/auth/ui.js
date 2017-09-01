@@ -11,17 +11,20 @@ const signUpSuccess = function (data) {
 
 const signUpFailure = function (error) {
   console.error(error)
+  $('#message').show()
   $('#message').text('You Failed at that sign up.')
   $('#message').delay(5000).fadeOut('slow')
 }
 const signInFailure = function (error) {
   console.error(error)
+  $('#message').show()
   $('#message').text('You Failed at that signing in.')
   $('#message').delay(5000).fadeOut('slow')
 }
 const signInSuccess = function (data) {
   console.log(data)
   console.log('Successfully Signed in, YO!')
+  $('#message').show()
   $('#message').text('Successfully Signed in!')
   $('#message').delay(5000).fadeOut('slow')
   store.user = data.user
@@ -33,17 +36,20 @@ const signInSuccess = function (data) {
 }
 const changePasswordSuccess = function () {
   console.log('changed password!')
+  $('#message').show()
   $('#message').text('Password Changed Successfully!')
   $('#message').delay(5000).fadeOut('slow')
 }
 
 const changePasswordFailure = function () {
   console.log('Error changing password')
+  $('#message').show()
   $('#message').text('Error changing password')
   $('#message').delay(5000).fadeOut('slow')
 }
 const signOutSuccess = function () {
   console.log('sign out successful')
+  $('#message').show()
   $('#message').text('sign out successful')
   $('#message').delay(5000).fadeOut('slow')
   store.user = null
@@ -51,7 +57,9 @@ const signOutSuccess = function () {
 }
 const signOutFailure = function () {
   console.log('Error signing out')
+  $('#message').show()
   $('#message').text('Error signing out')
+  $('#message').delay(5000).fadeOut('slow')
 }
 const getGamesSuccess = function (data) {
   console.log(data)
@@ -62,7 +70,9 @@ const getGamesSuccess = function (data) {
 
 const getGamesFailure = function (error) {
   console.error(error)
+  $('#message').show()
   $('#message').text('You Failed At Getting All The Games')
+  $('#message').delay(5000).fadeOut('slow')
 }
 const createNewGameSuccess = function (data) {
   console.log('new game created')
