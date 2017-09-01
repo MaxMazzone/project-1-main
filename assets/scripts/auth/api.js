@@ -55,7 +55,7 @@ const createNewGame = function () {
     }
   })
 }
-const onNewMove = function (id, userTurn, thereIsWinner) {
+const onNewMove = function (id, userTurn, thereIsWinner, thereIsTie) {
   return $.ajax({
     url: config.apiOrigin + '/games/' + store.gameStore,
     method: 'PATCH',
@@ -65,7 +65,7 @@ const onNewMove = function (id, userTurn, thereIsWinner) {
           "index": id - 1,
           "value": userTurn
         },
-        "over": thereIsWinner
+        "over": thereIsWinner || thereIsTie
       }
     },
     headers: {

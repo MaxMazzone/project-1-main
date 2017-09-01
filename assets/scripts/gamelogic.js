@@ -72,7 +72,7 @@ const checkRow = function checkRow (a, b, c, userTurn) {
 console.log(gameArray.every(arrayValueIsNull))
 
 const runGame = function () {
-  if (thereIsWinner === false) {
+  if (thereIsWinner === false && thereIsTie === false) {
     const id = this.id
     if (gameArray[this.id - 1] === null) {
       if (userTurn === 'x') {
@@ -98,8 +98,10 @@ const runGame = function () {
       console.log('invalid move')
       console.log(gameArray)
     }
-  } else {
+  } else if (thereIsWinner === true) {
     console.log('There is already a winner')
+  } else {
+    console.log('there is a tie')
   }
 }
 
