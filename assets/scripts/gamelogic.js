@@ -1,7 +1,14 @@
+const api = require('../scripts/auth/api.js')
+const ui = require('../scripts/auth/ui.js')
+const store = require('./store.js')
 let gameArray = [null, null, null, null, null, null, null, null, null]
 console.log(gameArray)
 let userTurn = 'x'
 let thereIsWinner = false
+let thereIsTie = false
+const arrayValueIsNull = function (element, index) {
+  return element !== null
+}
 
 const resetDivs = function () {
   for (let i = 1; i <= 9; i++) {
@@ -14,6 +21,10 @@ const resetGame = function (event) {
   thereIsWinner = false
   gameArray = [null, null, null, null, null, null, null, null, null]
   resetDivs()
+  store.gameStore = null
+  api.createNewGame()
+    .then(ui.createNewGameSuccess)
+    .catch(ui.createNewGameFailure)
 }
 const addTokenToArray = function (userClick, userTurn) {
   gameArray[userClick - 1] = userTurn
@@ -58,29 +69,39 @@ const checkRow = function checkRow (a, b, c, userTurn) {
   return result
 }
 
+console.log(gameArray.every(arrayValueIsNull))
+
 const runGame = function () {
-  if (thereIsWinner === false) {
+  if (thereIsWinner === false && thereIsTie === false) {
     const id = this.id
     if (gameArray[this.id - 1] === null) {
       if (userTurn === 'x') {
         putGamePiece(id)
         addTokenToArray(this.id, userTurn)
         checkForWinner(userTurn)
+        thereIsTie = gameArray.every(arrayValueIsNull)
+        api.onNewMove(id, userTurn, thereIsWinner)
         changeTurn()
         console.log(gameArray)
+        console.log(thereIsTie)
       } else {
         putGamePiece(id)
         addTokenToArray(this.id, userTurn)
         checkForWinner(userTurn)
+        thereIsTie = gameArray.every(arrayValueIsNull)
+        api.onNewMove(id, userTurn, thereIsWinner)
         changeTurn()
         console.log(gameArray)
+        console.log(thereIsTie)
       }
     } else if (gameArray[this.id - 1] !== null) {
       console.log('invalid move')
       console.log(gameArray)
     }
-  } else {
+  } else if (thereIsWinner === true) {
     console.log('There is already a winner')
+  } else {
+    console.log('there is a tie')
   }
 }
 

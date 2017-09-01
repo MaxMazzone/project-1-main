@@ -36,10 +36,50 @@ const signOut = function () {
     }
   })
 }
+const getGames = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+const createNewGame = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/games',
+    method: 'POST',
+    data: '{}',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+const onNewMove = function (id, userTurn, thereIsWinner, thereIsTie) {
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + store.gameStore,
+    method: 'PATCH',
+    data: {
+      "game": {
+        "cell": {
+          "index": id - 1,
+          "value": userTurn
+        },
+        "over": thereIsWinner || thereIsTie
+      }
+    },
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  getGames,
+  createNewGame,
+  onNewMove
 }

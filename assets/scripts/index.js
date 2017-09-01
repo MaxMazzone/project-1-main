@@ -1,7 +1,6 @@
 'use strict'
 require('./events.js')
 const authEvents = require('./auth/events.js')
-
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 
