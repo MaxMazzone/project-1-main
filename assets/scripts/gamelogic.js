@@ -19,6 +19,7 @@ const resetGame = function (event) {
   event.preventDefault()
   userTurn = 'x'
   thereIsWinner = false
+  thereIsTie = false
   gameArray = [null, null, null, null, null, null, null, null, null]
   resetDivs()
   store.gameStore = null
