@@ -1,3 +1,6 @@
+const api = require('../scripts/auth/api.js')
+const ui = require('../scripts/auth/ui.js')
+const store = require('./store.js')
 let gameArray = [null, null, null, null, null, null, null, null, null]
 console.log(gameArray)
 let userTurn = 'x'
@@ -14,6 +17,10 @@ const resetGame = function (event) {
   thereIsWinner = false
   gameArray = [null, null, null, null, null, null, null, null, null]
   resetDivs()
+  store.gameStore = null
+  api.createNewGame()
+    .then(ui.createNewGameSuccess)
+    .catch(ui.createNewGameFailure)
 }
 const addTokenToArray = function (userClick, userTurn) {
   gameArray[userClick - 1] = userTurn
@@ -66,12 +73,14 @@ const runGame = function () {
         putGamePiece(id)
         addTokenToArray(this.id, userTurn)
         checkForWinner(userTurn)
+        api.onNewMove(id, userTurn, thereIsWinner)
         changeTurn()
         console.log(gameArray)
       } else {
         putGamePiece(id)
         addTokenToArray(this.id, userTurn)
         checkForWinner(userTurn)
+        api.onNewMove(id, userTurn, thereIsWinner)
         changeTurn()
         console.log(gameArray)
       }

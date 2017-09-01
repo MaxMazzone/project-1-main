@@ -34,6 +34,7 @@ const signOutSuccess = function () {
   console.log('sign out successful')
   $('#message').text('sign out successful')
   store.user = null
+  store.game = null
 }
 const signOutFailure = function () {
   console.log('Error signing out')
@@ -49,6 +50,15 @@ const getGamesFailure = function (error) {
   console.error(error)
   $('#message').text('You Failed At Getting All The Games')
 }
+const createNewGameSuccess = function (data) {
+  console.log('new game created')
+  console.log(data)
+  store.gameStore = data.game.id
+}
+
+const createNewGameFailure = function () {
+  console.log('create new game did not work.')
+}
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -59,5 +69,7 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   getGamesSuccess,
-  getGamesFailure
+  getGamesFailure,
+  createNewGameSuccess,
+  createNewGameFailure
 }

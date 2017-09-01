@@ -20,6 +20,7 @@ const onSignIn = function (event) {
   api.signIn(data)
     .then(ui.signInSuccess)
     .then(api.createNewGame)
+    .then(ui.createNewGameSuccess)
     .catch(ui.signInFailure)
 }
 const onChangePassword = function (event) {

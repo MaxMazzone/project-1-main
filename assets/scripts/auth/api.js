@@ -55,6 +55,24 @@ const createNewGame = function () {
     }
   })
 }
+const onNewMove = function (id, userTurn, thereIsWinner) {
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + store.gameStore,
+    method: 'PATCH',
+    data: {
+      "game": {
+        "cell": {
+          "index": id - 1,
+          "value": userTurn
+        },
+        "over": thereIsWinner
+      }
+    },
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
 module.exports = {
   signUp,
@@ -62,5 +80,6 @@ module.exports = {
   changePassword,
   signOut,
   getGames,
-  createNewGame
+  createNewGame,
+  onNewMove
 }
