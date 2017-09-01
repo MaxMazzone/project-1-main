@@ -5,6 +5,10 @@ let gameArray = [null, null, null, null, null, null, null, null, null]
 console.log(gameArray)
 let userTurn = 'x'
 let thereIsWinner = false
+let thereIsTie = false
+const arrayValueIsNull = function (element, index) {
+  return element !== null
+}
 
 const resetDivs = function () {
   for (let i = 1; i <= 9; i++) {
@@ -65,6 +69,8 @@ const checkRow = function checkRow (a, b, c, userTurn) {
   return result
 }
 
+console.log(gameArray.every(arrayValueIsNull))
+
 const runGame = function () {
   if (thereIsWinner === false) {
     const id = this.id
@@ -73,16 +79,20 @@ const runGame = function () {
         putGamePiece(id)
         addTokenToArray(this.id, userTurn)
         checkForWinner(userTurn)
+        thereIsTie = gameArray.every(arrayValueIsNull)
         api.onNewMove(id, userTurn, thereIsWinner)
         changeTurn()
         console.log(gameArray)
+        console.log(thereIsTie)
       } else {
         putGamePiece(id)
         addTokenToArray(this.id, userTurn)
         checkForWinner(userTurn)
+        thereIsTie = gameArray.every(arrayValueIsNull)
         api.onNewMove(id, userTurn, thereIsWinner)
         changeTurn()
         console.log(gameArray)
+        console.log(thereIsTie)
       }
     } else if (gameArray[this.id - 1] !== null) {
       console.log('invalid move')
