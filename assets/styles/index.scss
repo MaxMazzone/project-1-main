@@ -1,6 +1,25 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+div {
+  text-align: center;
+}
 .col-lg-4 {
   border: 1px solid #000;
+}
+
+.container {
+  display: none;
+}
+
+#reset-game {
+  display: none;
+}
+
+#change-password {
+  display: none;
+}
+
+#sign-out {
+  display: none;
 }
