@@ -84,7 +84,7 @@ const runGame = function () {
         api.onNewMove(id, userTurn, thereIsWinner)
         changeTurn()
         console.log(gameArray)
-        console.log(thereIsTie)
+        ui.sayWhosUp(userTurn)
       } else {
         putGamePiece(id)
         addTokenToArray(this.id, userTurn)
@@ -93,7 +93,7 @@ const runGame = function () {
         api.onNewMove(id, userTurn, thereIsWinner)
         changeTurn()
         console.log(gameArray)
-        console.log(thereIsTie)
+        ui.sayWhosUp(userTurn)
       }
     } else if (gameArray[this.id - 1] !== null) {
       console.log('invalid move')
@@ -105,6 +105,7 @@ const runGame = function () {
     console.log('there is a tie')
   }
 }
+console.log(userTurn)
 
 module.exports = {
   userTurn,

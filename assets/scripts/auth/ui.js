@@ -90,6 +90,9 @@ const createNewGameSuccess = function (data) {
 const createNewGameFailure = function () {
   console.log('create new game did not work.')
 }
+const sayWhosUp = function (userTurn) {
+  console.log(userTurn)
+}
 
 module.exports = {
   signUpSuccess,
@@ -103,5 +106,6 @@ module.exports = {
   getGamesSuccess,
   getGamesFailure,
   createNewGameSuccess,
-  createNewGameFailure
+  createNewGameFailure,
+  sayWhosUp
 }
