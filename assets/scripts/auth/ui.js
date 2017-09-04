@@ -6,6 +6,7 @@ const signUpSuccess = function (data) {
   console.log('Successfully Signed Up!')
   $('#message').text('Successfully Signed Up!')
   $('#message').delay(5000).fadeOut('slow')
+  $('#sign-up').trigger('reset')
   $('#sign-up').hide()
 }
 
@@ -26,6 +27,7 @@ const signInSuccess = function (data) {
   console.log('Successfully Signed in, YO!')
   $('#message').show()
   $('#message').text('Successfully Signed in!')
+  $('#sign-in').trigger('reset')
   $('#message').delay(5000).fadeOut('slow')
   store.user = data.user
   $('#sign-in').hide()
@@ -54,6 +56,11 @@ const signOutSuccess = function () {
   $('#message').delay(5000).fadeOut('slow')
   store.user = null
   store.game = null
+  $('#sign-in').show()
+  $('#sign-up').show()
+  $('.container').hide()
+  $('#reset-game').hide()
+  $('#sign-out').hide()
 }
 const signOutFailure = function () {
   console.log('Error signing out')
