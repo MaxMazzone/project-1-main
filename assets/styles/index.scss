@@ -11,10 +11,12 @@ div {
   min-width: 100px;
   font-size: 80px;
 }
-#top-header{
+
+#top-header {
   text-align: center;
   font-size: 2em;
   background-color: #f7786b;
+  color: #034f84;
 }
 
 p {
@@ -24,7 +26,9 @@ p {
 
 .col-lg-4 {
   border: 1px solid #000;
+  background-color: #f78a7f;
 }
+
 
 .form-control {
   width: 40%
@@ -32,7 +36,6 @@ p {
 
 .container {
   display: none;
-  background-color: #f78a7f;
 }
 
 #reset-game {
@@ -54,4 +57,8 @@ p {
 
 #change-password {
   display: none;
+}
+
+legend {
+  color: #f7786b;
 }
