@@ -8,7 +8,6 @@ const signUpSuccess = function (data) {
   $('#message').delay(5000).fadeOut('slow')
   $('#sign-up').trigger('reset')
   $('#sign-up').hide()
-  $('#change-password').show()
 }
 
 const signUpFailure = function (error) {
@@ -38,6 +37,7 @@ const signInSuccess = function (data) {
   $('#sign-out').show()
   $('#game-message').show()
   $('#games-search').show()
+  $('#change-password').show()
 }
 const changePasswordSuccess = function () {
   console.log('changed password!')
