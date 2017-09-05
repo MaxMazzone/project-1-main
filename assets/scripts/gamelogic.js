@@ -30,7 +30,7 @@ const resetGame = function (event) {
     .then(ui.createNewGameSuccess)
     .catch(ui.createNewGameFailure)
 }
-const resetGameOnSignOut = function (event, userTurn) {
+const resetGameOnSignOut = function (event) {
   event.preventDefault()
   userTurn = 'x'
   thereIsWinner = false
