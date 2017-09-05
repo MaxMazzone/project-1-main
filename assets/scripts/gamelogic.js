@@ -100,7 +100,7 @@ const runGame = function () {
         ui.sayWhosUp(userTurn)
       }
     } else if (gameArray[this.id - 1] !== null) {
-      console.log('invalid move')
+      ui.showInvalidMove()
       console.log(gameArray)
     }
   } else if (thereIsWinner === true) {

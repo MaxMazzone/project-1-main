@@ -38,6 +38,7 @@ const signInSuccess = function (data) {
   $('#reset-game').show()
   $('#sign-out').show()
   $('#game-message').show()
+  $('#games-search').show()
 }
 const changePasswordSuccess = function () {
   console.log('changed password!')
@@ -65,6 +66,7 @@ const signOutSuccess = function () {
   $('#reset-game').hide()
   $('#sign-out').hide()
   $('#game-message').hide()
+  $('#games-search').hide()
 }
 const signOutFailure = function () {
   console.log('Error signing out')
@@ -74,15 +76,17 @@ const signOutFailure = function () {
 }
 const getGamesSuccess = function (data) {
   console.log(data)
-  console.log('You got all the games')
-  $('#message').text('data')
-  $('#message').delay(5000).fadeOut('slow')
+  console.log(data.games.length)
+  console.log('You got all the completed games')
+  $('#complete-games').show()
+  $('#complete-games').text('You have played ' + data.games.length + ' games!')
+  $('#complete-games').delay(8000).fadeOut('slow')
 }
 
 const getGamesFailure = function (error) {
   console.error(error)
   $('#message').show()
-  $('#message').text('You Failed At Getting All The Games')
+  $('#message').text('You Failed At Getting The Games')
   $('#message').delay(5000).fadeOut('slow')
 }
 const createNewGameSuccess = function (data) {
@@ -108,6 +112,11 @@ const announceTie = function () {
 const hideGameMessage = function () {
   $('#game-announcement').hide()
 }
+const showInvalidMove = function () {
+  $('#game-announcement').text('You can\'t move there!')
+  $('#game-announcement').show()
+  $('#game-announcement').delay(1000).fadeOut('slow')
+}
 
 module.exports = {
   signUpSuccess,
@@ -125,6 +134,7 @@ module.exports = {
   sayWhosUp,
   announceWinner,
   announceTie,
-  hideGameMessage
+  hideGameMessage,
+  showInvalidMove
 
 }
