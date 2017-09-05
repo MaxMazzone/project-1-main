@@ -33,7 +33,6 @@ const signInSuccess = function (data) {
   store.user = data.user
   $('#sign-in').hide()
   $('#sign-up').hide()
-  $('#change-password').hide()
   $('.container').show()
   $('#reset-game').show()
   $('#sign-out').show()
@@ -45,6 +44,7 @@ const changePasswordSuccess = function () {
   $('#message').show()
   $('#message').text('Password Changed Successfully!')
   $('#message').delay(5000).fadeOut('slow')
+  $('#change-password').trigger('reset')
 }
 
 const changePasswordFailure = function () {
@@ -65,8 +65,10 @@ const signOutSuccess = function () {
   $('.container').hide()
   $('#reset-game').hide()
   $('#sign-out').hide()
+  $('#change-password').hide()
   $('#game-message').hide()
   $('#games-search').hide()
+  $('game-announcement').hide()
 }
 const signOutFailure = function () {
   console.log('Error signing out')
