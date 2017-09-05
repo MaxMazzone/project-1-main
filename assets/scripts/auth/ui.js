@@ -53,7 +53,7 @@ const changePasswordFailure = function () {
   $('#message').text('Error changing password')
   $('#message').delay(5000).fadeOut('slow')
 }
-const signOutSuccess = function () {
+const signOutSuccess = function (gameLogic) {
   console.log('sign out successful')
   $('#message').show()
   $('#message').text('sign out successful')
@@ -68,7 +68,8 @@ const signOutSuccess = function () {
   $('#change-password').hide()
   $('#game-message').hide()
   $('#games-search').hide()
-  $('game-announcement').hide()
+  $('#game-announcement').hide()
+  $('#complete-games').hide()
 }
 const signOutFailure = function () {
   console.log('Error signing out')
