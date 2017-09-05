@@ -25,6 +25,7 @@ const resetGame = function (event, useTurn) {
   resetDivs()
   store.gameStore = null
   ui.sayWhosUp(userTurn)
+  ui.hideGameMessage()
   api.createNewGame()
     .then(ui.createNewGameSuccess)
     .catch(ui.createNewGameFailure)
@@ -59,6 +60,7 @@ const checkForWinner = function (userTurn) {
     result = true
     if (result === true) {
       thereIsWinner = true
+      ui.announceWinner(userTurn)
     }
   }
   return result
@@ -102,9 +104,8 @@ const runGame = function () {
       console.log(gameArray)
     }
   } else if (thereIsWinner === true) {
-    console.log('There is already a winner')
   } else {
-    console.log('there is a tie')
+    ui.announceTie()
   }
 }
 console.log(userTurn)

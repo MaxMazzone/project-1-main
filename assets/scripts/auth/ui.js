@@ -8,6 +8,7 @@ const signUpSuccess = function (data) {
   $('#message').delay(5000).fadeOut('slow')
   $('#sign-up').trigger('reset')
   $('#sign-up').hide()
+  $('#change-password').show()
 }
 
 const signUpFailure = function (error) {
@@ -32,6 +33,7 @@ const signInSuccess = function (data) {
   store.user = data.user
   $('#sign-in').hide()
   $('#sign-up').hide()
+  $('#change-password').hide()
   $('.container').show()
   $('#reset-game').show()
   $('#sign-out').show()
@@ -95,6 +97,17 @@ const createNewGameFailure = function () {
 const sayWhosUp = function (userTurn) {
   $('#game-message').text('Player ' + userTurn + ' is up.')
 }
+const announceWinner = function (userTurn) {
+  $('#game-announcement').text(userTurn + ' is the winner!')
+  $('#game-announcement').show()
+}
+const announceTie = function () {
+  $('#game-announcement').text('There is a Tie! Restart to keep playing.')
+  $('#game-announcement').show()
+}
+const hideGameMessage = function () {
+  $('#game-announcement').hide()
+}
 
 module.exports = {
   signUpSuccess,
@@ -109,5 +122,9 @@ module.exports = {
   getGamesFailure,
   createNewGameSuccess,
   createNewGameFailure,
-  sayWhosUp
+  sayWhosUp,
+  announceWinner,
+  announceTie,
+  hideGameMessage
+
 }
