@@ -1,6 +1,33 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+div {
+  text-align: center;
+  min-height: 125px;
+  min-width: 100px;
+  font-size: 80px;
+}
+
 .col-lg-4 {
   border: 1px solid #000;
+}
+
+.container {
+  display: none;
+}
+
+#reset-game {
+  display: none;
+}
+
+#sign-out {
+  display: none;
+}
+
+#game-message {
+  display: none;
+}
+
+#games-search {
+  display: none;
 }

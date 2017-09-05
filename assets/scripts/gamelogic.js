@@ -1,6 +1,7 @@
 const api = require('../scripts/auth/api.js')
 const ui = require('../scripts/auth/ui.js')
 const store = require('./store.js')
+
 let gameArray = [null, null, null, null, null, null, null, null, null]
 console.log(gameArray)
 let userTurn = 'x'
@@ -12,16 +13,19 @@ const arrayValueIsNull = function (element, index) {
 
 const resetDivs = function () {
   for (let i = 1; i <= 9; i++) {
-    $('#' + i).text('coord-' + i)
+    $('#' + i).text('')
   }
 }
-const resetGame = function (event) {
+const resetGame = function (event, useTurn) {
   event.preventDefault()
   userTurn = 'x'
   thereIsWinner = false
+  thereIsTie = false
   gameArray = [null, null, null, null, null, null, null, null, null]
   resetDivs()
   store.gameStore = null
+  ui.sayWhosUp(userTurn)
+  ui.hideGameMessage()
   api.createNewGame()
     .then(ui.createNewGameSuccess)
     .catch(ui.createNewGameFailure)
@@ -56,6 +60,7 @@ const checkForWinner = function (userTurn) {
     result = true
     if (result === true) {
       thereIsWinner = true
+      ui.announceWinner(userTurn)
     }
   }
   return result
@@ -83,7 +88,7 @@ const runGame = function () {
         api.onNewMove(id, userTurn, thereIsWinner)
         changeTurn()
         console.log(gameArray)
-        console.log(thereIsTie)
+        ui.sayWhosUp(userTurn)
       } else {
         putGamePiece(id)
         addTokenToArray(this.id, userTurn)
@@ -92,18 +97,18 @@ const runGame = function () {
         api.onNewMove(id, userTurn, thereIsWinner)
         changeTurn()
         console.log(gameArray)
-        console.log(thereIsTie)
+        ui.sayWhosUp(userTurn)
       }
     } else if (gameArray[this.id - 1] !== null) {
-      console.log('invalid move')
+      ui.showInvalidMove()
       console.log(gameArray)
     }
   } else if (thereIsWinner === true) {
-    console.log('There is already a winner')
   } else {
-    console.log('there is a tie')
+    ui.announceTie()
   }
 }
+console.log(userTurn)
 
 module.exports = {
   userTurn,

@@ -12,66 +12,68 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
+      <p id="message"></p>
       <div class="container">
         <div class="row">
           <div class="col-lg-4 col-md-3 col-sm-3 col-xs-3 box">
             <div class="coord" id="1">
-              coordinate-1
+
             </div>
           </div>
           <div class="col-lg-4 col-md-3 col-sm-3 col-xs-3 box">
             <div class="coord" id="2">
-              coordinate-2
+
             </div>
           </div>
           <div class="col-lg-4 col-md-3 col-sm-3 col-xs-3 box">
             <div class="coord" id="3">
-              coordinate-3
+
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-lg-4 col-md-3 col-sm-3 col-xs-3 box">
             <div class="coord" id="4">
-              coordinate-4
+
             </div>
           </div>
           <div class="col-lg-4 col-md-3 col-sm-3 col-xs-3 box">
             <div class="coord" id="5">
-              coordinate-5
+
             </div>
           </div>
           <div class="col-lg-4 col-md-3 col-sm-3 col-xs-3 box">
             <div class="coord" id="6">
-              coordinate-6
+
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-lg-4 col-md-3 col-sm-3 col-xs-3 box">
             <div class="coord" id="7">
-              coordinate-7
+
             </div>
           </div>
           <div class="col-lg-4 col-md-3 col-sm-3 col-xs-3 box">
             <div class="coord" id="8">
-              coordinate-8
+
             </div>
           </div>
           <div class="col-lg-4 col-md-3 col-sm-3 col-xs-3 box">
             <div class="coord" id="9">
-              coordinate-9
+
             </div>
           </div>
         </div>
       </div>
+      <p id="game-message"> Player x is up. </p>
+      <p id="game-announcement"></p>
       <form id="reset-game">
         <fieldset>
           <legend>Reset Game</legend>
           <input type="submit" name="submit" value="Reset Game">
         </fieldset>
       </form>
-      <p id="message"></p>
       <form id="sign-up">
         <fieldset>
           <legend>Sign up!</legend>
@@ -103,9 +105,12 @@
           <input type="submit" name="submit" value="Sign Out">
         </fieldset>
       </form>
+      <div>
+        <p id=complete-games> </p>
       <form class ="games" id ="games-search">
-        <button type="submit" class="btn btn-default"> Get all Games</button>
+        <button type="submit" class="btn btn-default"> Completed Games</button>
       </form>
+    </div>
 
     </body>
 </html>
