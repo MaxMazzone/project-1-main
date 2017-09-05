@@ -11,6 +11,7 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
+    <header class="page-header" id="top-header"> Max's Tic Tac Toe Game </header>
     <body class="container-fluid">
       <p id="message"></p>
       <p id="game-message"> Player x is up. </p>
@@ -71,44 +72,44 @@
       <form id="reset-game">
         <fieldset>
           <legend>Reset Game</legend>
-          <input type="submit" name="submit" value="Reset Game">
+          <input type="submit" name="submit" class="btn btn-success" value="Reset Game">
         </fieldset>
       </form>
-      <form id="sign-up">
+      <form class="form-inline" id="sign-up">
         <fieldset>
           <legend>Sign up!</legend>
-          <input type="text" name="credentials[email]" placeholder="Email">
-          <input type="password" name="credentials[password]" placeholder="Password">
-          <input type="password" name="credentials[password_confirmation]" placeholder="Password Confirmations">
-          <input type="submit" name="submit" value="Sign up!">
+          <input type="text" name="credentials[email]" class="form-control" placeholder="Email">
+          <input type="password" name="credentials[password]" class="form-control" placeholder="Password">
+          <input type="password" name="credentials[password_confirmation]" class="form-control" placeholder="Password Confirmation">
+          <input type="submit" name="submit" class="btn btn-primary" value="Sign up!">
         </fieldset>
       </form>
-      <form id="sign-in">
+      <form class="form-inline" id="sign-in">
         <fieldset>
           <legend>Sign in!</legend>
-          <input type="text" name="credentials[email]" placeholder="Email">
-          <input type="password" name="credentials[password]" placeholder="Password">
-          <input type="submit" name="submit" value="Sign in!">
+          <input type="text" name="credentials[email]" class="form-control" placeholder="Email">
+          <input type="password" name="credentials[password]" class="form-control" placeholder="Password">
+          <input type="submit" name="submit" class="btn btn-primary" value="Sign in!">
         </fieldset>
       </form>
-      <form id="change-password">
+      <form class="form-inline" id="change-password">
         <fieldset>
           <legend>Change Password!</legend>
-          <input type="password" name="passwords[old]" placeholder="Old Password">
-          <input type="password" name="passwords[new]" placeholder="New Password">
-          <input type="submit" name="submit" value="Change Password">
+          <input type="password" name="passwords[old]" class="form-control" placeholder="Old Password">
+          <input type="password" name="passwords[new]" class="form-control" placeholder="New Password">
+          <input type="submit" name="submit" class="btn btn-primary" value="Change Password">
         </fieldset>
       </form>
       <form id="sign-out">
         <fieldset>
           <legend>Sign Out</legend>
-          <input type="submit" name="submit" value="Sign Out">
+          <input type="submit" name="submit" class="btn btn-danger btn-sm" value="Sign Out">
         </fieldset>
       </form>
       <div>
         <p id=complete-games> </p>
       <form class ="games" id ="games-search">
-        <button type="submit" class="btn btn-default"> Completed Games</button>
+        <button type="submit" class="btn btn-info"> Completed Games</button>
       </form>
     </div>
 
