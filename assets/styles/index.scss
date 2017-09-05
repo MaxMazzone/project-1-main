@@ -3,7 +3,11 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 div {
   text-align: center;
+  min-height: 125px;
+  min-width: 100px;
+  font-size: 80px;
 }
+
 .col-lg-4 {
   border: 1px solid #000;
 }

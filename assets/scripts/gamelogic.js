@@ -13,7 +13,7 @@ const arrayValueIsNull = function (element, index) {
 
 const resetDivs = function () {
   for (let i = 1; i <= 9; i++) {
-    $('#' + i).text('|')
+    $('#' + i).text('')
   }
 }
 const resetGame = function (event, useTurn) {
