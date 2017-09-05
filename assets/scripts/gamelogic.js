@@ -1,6 +1,7 @@
 const api = require('../scripts/auth/api.js')
 const ui = require('../scripts/auth/ui.js')
 const store = require('./store.js')
+
 let gameArray = [null, null, null, null, null, null, null, null, null]
 console.log(gameArray)
 let userTurn = 'x'
@@ -15,7 +16,7 @@ const resetDivs = function () {
     $('#' + i).text('|')
   }
 }
-const resetGame = function (event) {
+const resetGame = function (event, useTurn) {
   event.preventDefault()
   userTurn = 'x'
   thereIsWinner = false
@@ -23,6 +24,7 @@ const resetGame = function (event) {
   gameArray = [null, null, null, null, null, null, null, null, null]
   resetDivs()
   store.gameStore = null
+  ui.sayWhosUp(userTurn)
   api.createNewGame()
     .then(ui.createNewGameSuccess)
     .catch(ui.createNewGameFailure)

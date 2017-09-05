@@ -35,6 +35,7 @@ const signInSuccess = function (data) {
   $('.container').show()
   $('#reset-game').show()
   $('#sign-out').show()
+  $('#game-message').show()
 }
 const changePasswordSuccess = function () {
   console.log('changed password!')
@@ -61,6 +62,7 @@ const signOutSuccess = function () {
   $('.container').hide()
   $('#reset-game').hide()
   $('#sign-out').hide()
+  $('#game-message').hide()
 }
 const signOutFailure = function () {
   console.log('Error signing out')
@@ -91,7 +93,7 @@ const createNewGameFailure = function () {
   console.log('create new game did not work.')
 }
 const sayWhosUp = function (userTurn) {
-  console.log(userTurn)
+  $('#game-message').text('Player ' + userTurn + ' is up.')
 }
 
 module.exports = {
