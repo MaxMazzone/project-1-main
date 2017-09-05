@@ -16,7 +16,7 @@ const resetDivs = function () {
     $('#' + i).text('')
   }
 }
-const resetGame = function (event, useTurn) {
+const resetGame = function (event, userTurn) {
   event.preventDefault()
   userTurn = 'x'
   thereIsWinner = false
@@ -29,6 +29,17 @@ const resetGame = function (event, useTurn) {
   api.createNewGame()
     .then(ui.createNewGameSuccess)
     .catch(ui.createNewGameFailure)
+}
+const resetGameOnSignOut = function (event, userTurn) {
+  event.preventDefault()
+  userTurn = 'x'
+  thereIsWinner = false
+  thereIsTie = false
+  gameArray = [null, null, null, null, null, null, null, null, null]
+  resetDivs()
+  store.gameStore = null
+  ui.sayWhosUp(userTurn)
+  ui.hideGameMessage()
 }
 const addTokenToArray = function (userClick, userTurn) {
   gameArray[userClick - 1] = userTurn
@@ -77,15 +88,15 @@ const checkRow = function checkRow (a, b, c, userTurn) {
 console.log(gameArray.every(arrayValueIsNull))
 
 const runGame = function () {
+  const id = this.id
   if (thereIsWinner === false && thereIsTie === false) {
-    const id = this.id
     if (gameArray[this.id - 1] === null) {
       if (userTurn === 'x') {
         putGamePiece(id)
         addTokenToArray(this.id, userTurn)
         checkForWinner(userTurn)
         thereIsTie = gameArray.every(arrayValueIsNull)
-        api.onNewMove(id, userTurn, thereIsWinner)
+        api.onNewMove(id, userTurn, thereIsWinner, thereIsTie)
         changeTurn()
         console.log(gameArray)
         ui.sayWhosUp(userTurn)
@@ -94,7 +105,7 @@ const runGame = function () {
         addTokenToArray(this.id, userTurn)
         checkForWinner(userTurn)
         thereIsTie = gameArray.every(arrayValueIsNull)
-        api.onNewMove(id, userTurn, thereIsWinner)
+        api.onNewMove(id, userTurn, thereIsWinner, thereIsTie)
         changeTurn()
         console.log(gameArray)
         ui.sayWhosUp(userTurn)
@@ -113,5 +124,6 @@ console.log(userTurn)
 module.exports = {
   userTurn,
   runGame,
-  resetGame
+  resetGame,
+  resetGameOnSignOut
 }
