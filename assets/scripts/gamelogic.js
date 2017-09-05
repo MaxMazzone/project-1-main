@@ -16,7 +16,7 @@ const resetDivs = function () {
     $('#' + i).text('')
   }
 }
-const resetGame = function (event, userTurn) {
+const resetGame = function (event) {
   event.preventDefault()
   userTurn = 'x'
   thereIsWinner = false

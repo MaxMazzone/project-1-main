@@ -1,11 +1,22 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+body {
+  background-color: #92a8d1;
+}
+
 div {
   text-align: center;
   min-height: 125px;
   min-width: 100px;
   font-size: 80px;
+}
+
+#top-header {
+  text-align: center;
+  font-size: 2em;
+  background-color: #f7786b;
+  color: #034f84;
 }
 
 p {
@@ -15,6 +26,12 @@ p {
 
 .col-lg-4 {
   border: 1px solid #000;
+  background-color: #f78a7f;
+}
+
+
+.form-control {
+  width: 40%
 }
 
 .container {
@@ -31,6 +48,7 @@ p {
 
 #game-message {
   display: none;
+  color: #034f84;
 }
 
 #games-search {
@@ -39,4 +57,8 @@ p {
 
 #change-password {
   display: none;
+}
+
+legend {
+  color: #f7786b;
 }
