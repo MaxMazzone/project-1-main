@@ -25,6 +25,7 @@ const resetGame = function (event) {
   resetDivs()
   store.gameStore = null
   ui.sayWhosUp(userTurn)
+  $('#game-message').show()
   ui.hideGameMessage()
   api.createNewGame()
     .then(ui.createNewGameSuccess)
@@ -39,6 +40,7 @@ const resetGameOnSignOut = function (event) {
   resetDivs()
   store.gameStore = null
   ui.sayWhosUp(userTurn)
+  $('#game-message').show()
   ui.hideGameMessage()
 }
 const addTokenToArray = function (userClick, userTurn) {
