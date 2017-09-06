@@ -3,7 +3,7 @@ const ui = require('../scripts/auth/ui.js')
 const store = require('./store.js')
 
 let gameArray = [null, null, null, null, null, null, null, null, null]
-console.log(gameArray)
+// console.log(gameArray)
 let userTurn = 'x'
 let thereIsWinner = false
 let thereIsTie = false
@@ -85,7 +85,7 @@ const checkRow = function checkRow (a, b, c, userTurn) {
   return result
 }
 
-console.log(gameArray.every(arrayValueIsNull))
+// console.log(gameArray.every(arrayValueIsNull))
 
 const runGame = function () {
   const id = this.id
@@ -98,7 +98,7 @@ const runGame = function () {
         thereIsTie = gameArray.every(arrayValueIsNull)
         api.onNewMove(id, userTurn, thereIsWinner, thereIsTie)
         changeTurn()
-        console.log(gameArray)
+        // console.log(gameArray)
         ui.sayWhosUp(userTurn)
       } else {
         putGamePiece(id)
@@ -107,19 +107,19 @@ const runGame = function () {
         thereIsTie = gameArray.every(arrayValueIsNull)
         api.onNewMove(id, userTurn, thereIsWinner, thereIsTie)
         changeTurn()
-        console.log(gameArray)
+        // console.log(gameArray)
         ui.sayWhosUp(userTurn)
       }
     } else if (gameArray[this.id - 1] !== null) {
       ui.showInvalidMove()
-      console.log(gameArray)
+      // console.log(gameArray)
     }
   } else if (thereIsWinner === true) {
   } else {
     ui.announceTie()
   }
 }
-console.log(userTurn)
+// console.log(userTurn)
 
 module.exports = {
   userTurn,

@@ -2,8 +2,8 @@
 const store = require('../store')
 
 const signUpSuccess = function (data) {
-  console.log(data)
-  console.log('Successfully Signed Up!')
+  // console.log(data)
+  // console.log('Successfully Signed Up!')
   $('#message').text('Successfully Signed Up!')
   $('#message').delay(5000).fadeOut('slow')
   $('#sign-up').trigger('reset')
@@ -11,20 +11,20 @@ const signUpSuccess = function (data) {
 }
 
 const signUpFailure = function (error) {
-  console.error(error)
+  // console.error(error)
   $('#message').show()
-  $('#message').text('You Failed at that sign up.')
+  $('#message').text('You Failed at that sign up. ' + error)
   $('#message').delay(5000).fadeOut('slow')
 }
 const signInFailure = function (error) {
-  console.error(error)
+  // console.error(error)
   $('#message').show()
-  $('#message').text('You Failed at that signing in.')
+  $('#message').text('You Failed at that signing in. ' + error)
   $('#message').delay(5000).fadeOut('slow')
 }
 const signInSuccess = function (data) {
-  console.log(data)
-  console.log('Successfully Signed in, YO!')
+  // console.log(data)
+  // console.log('Successfully Signed in, YO!')
   $('#message').show()
   $('#message').text('Successfully Signed in!')
   $('#sign-in').trigger('reset')
@@ -40,7 +40,7 @@ const signInSuccess = function (data) {
   $('#change-password').show()
 }
 const changePasswordSuccess = function () {
-  console.log('changed password!')
+  // console.log('changed password!')
   $('#message').show()
   $('#message').text('Password Changed Successfully!')
   $('#message').delay(5000).fadeOut('slow')
@@ -48,13 +48,13 @@ const changePasswordSuccess = function () {
 }
 
 const changePasswordFailure = function () {
-  console.log('Error changing password')
+  // console.log('Error changing password')
   $('#message').show()
   $('#message').text('Error changing password')
   $('#message').delay(5000).fadeOut('slow')
 }
 const signOutSuccess = function (gameLogic) {
-  console.log('sign out successful')
+  // console.log('sign out successful')
   $('#message').show()
   $('#message').text('sign out successful')
   $('#message').delay(5000).fadeOut('slow')
@@ -72,34 +72,34 @@ const signOutSuccess = function (gameLogic) {
   $('#complete-games').hide()
 }
 const signOutFailure = function () {
-  console.log('Error signing out')
+  // console.log('Error signing out')
   $('#message').show()
   $('#message').text('Error signing out')
   $('#message').delay(5000).fadeOut('slow')
 }
 const getGamesSuccess = function (data) {
-  console.log(data)
-  console.log(data.games.length)
-  console.log('You got all the completed games')
+  // console.log(data)
+  // console.log(data.games.length)
+  // console.log('You got all the completed games')
   $('#complete-games').show()
   $('#complete-games').text('You have played ' + data.games.length + ' games!')
   $('#complete-games').delay(8000).fadeOut('slow')
 }
 
 const getGamesFailure = function (error) {
-  console.error(error)
+  // console.error(error)
   $('#message').show()
   $('#message').text('You Failed At Getting The Games')
   $('#message').delay(5000).fadeOut('slow')
 }
 const createNewGameSuccess = function (data) {
-  console.log('new game created')
-  console.log(data)
+  // console.log('new game created')
+  // console.log(data)
   store.gameStore = data.game.id
 }
 
 const createNewGameFailure = function () {
-  console.log('create new game did not work.')
+  // console.log('create new game did not work.')
 }
 const sayWhosUp = function (userTurn) {
   $('#game-message').text('Player ' + userTurn + ' is up.')
