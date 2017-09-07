@@ -109,10 +109,12 @@ const announceWinner = function (userTurn) {
   $('#game-announcement').show()
   $('#game-message').hide()
 }
-const announceTie = function () {
-  $('#game-announcement').text('There is a Tie! Restart to keep playing.')
-  $('#game-announcement').show()
-  $('#game-message').hide()
+const announceTie = function (thereIsTie) {
+  if (thereIsTie === true) {
+    $('#game-announcement').text('There is a Tie! Restart to keep playing.')
+    $('#game-announcement').show()
+    $('#game-message').hide()
+  }
 }
 const hideGameMessage = function () {
   $('#game-announcement').hide()

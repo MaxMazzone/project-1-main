@@ -98,6 +98,7 @@ const runGame = function () {
         addTokenToArray(this.id, userTurn)
         checkForWinner(userTurn)
         thereIsTie = gameArray.every(arrayValueIsNull)
+        ui.announceTie(thereIsTie)
         api.onNewMove(id, userTurn, thereIsWinner, thereIsTie)
         changeTurn()
         // console.log(gameArray)
@@ -107,6 +108,7 @@ const runGame = function () {
         addTokenToArray(this.id, userTurn)
         checkForWinner(userTurn)
         thereIsTie = gameArray.every(arrayValueIsNull)
+        ui.announceTie(thereIsTie)
         api.onNewMove(id, userTurn, thereIsWinner, thereIsTie)
         changeTurn()
         // console.log(gameArray)
@@ -118,7 +120,6 @@ const runGame = function () {
     }
   } else if (thereIsWinner === true) {
   } else {
-    ui.announceTie()
   }
 }
 // console.log(userTurn)
