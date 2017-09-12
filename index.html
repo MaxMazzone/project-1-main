@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Max's Tic Tac Toe Game</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <header class="page-header" id="top-header"> Max's Tic Tac Toe Game </header>
+    <body class="container-fluid">
+      <p id="message"></p>
+      <p id="game-message"> Player x is up. </p>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-3 col-sm-3 col-xs-3 box">
+            <div class="coord" id="1">
+
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-3 col-sm-3 col-xs-3 box">
+            <div class="coord" id="2">
+
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-3 col-sm-3 col-xs-3 box">
+            <div class="coord" id="3">
+
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-3 col-sm-3 col-xs-3 box">
+            <div class="coord" id="4">
+
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-3 col-sm-3 col-xs-3 box">
+            <div class="coord" id="5">
+
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-3 col-sm-3 col-xs-3 box">
+            <div class="coord" id="6">
+
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-3 col-sm-3 col-xs-3 box">
+            <div class="coord" id="7">
+
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-3 col-sm-3 col-xs-3 box">
+            <div class="coord" id="8">
+
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-3 col-sm-3 col-xs-3 box">
+            <div class="coord" id="9">
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <p id="game-announcement"></p>
+      <form id="reset-game">
+        <fieldset>
+          <legend>Reset Game</legend>
+          <input type="submit" name="submit" class="btn btn-success" value="Reset Game">
+        </fieldset>
+      </form>
+      <form class="form-inline" id="sign-up">
+        <fieldset>
+          <legend>Sign up!</legend>
+          <input type="text" name="credentials[email]" class="form-control" placeholder="Email">
+          <input type="password" name="credentials[password]" class="form-control" placeholder="Password">
+          <input type="password" name="credentials[password_confirmation]" class="form-control" placeholder="Password Confirmation">
+          <input type="submit" name="submit" class="btn btn-primary" value="Sign up!">
+        </fieldset>
+      </form>
+      <form class="form-inline" id="sign-in">
+        <fieldset>
+          <legend>Sign in!</legend>
+          <input type="text" name="credentials[email]" class="form-control" placeholder="Email">
+          <input type="password" name="credentials[password]" class="form-control" placeholder="Password">
+          <input type="submit" name="submit" class="btn btn-primary" value="Sign in!">
+        </fieldset>
+      </form>
+      <form class="form-inline" id="change-password">
+        <fieldset>
+          <legend>Change Password!</legend>
+          <input type="password" name="passwords[old]" class="form-control" placeholder="Old Password">
+          <input type="password" name="passwords[new]" class="form-control" placeholder="New Password">
+          <input type="submit" name="submit" class="btn btn-primary" value="Change Password">
+        </fieldset>
+      </form>
+      <form id="sign-out">
+        <fieldset>
+          <legend>Sign Out</legend>
+          <input type="submit" name="submit" class="btn btn-danger btn-sm" value="Sign Out">
+        </fieldset>
+      </form>
+      <div>
+        <p id=complete-games> </p>
+      <form class ="games" id ="games-search">
+        <button type="submit" class="btn btn-info"> Completed Games</button>
+      </form>
+    </div>
+
+    </body>
+</html>
