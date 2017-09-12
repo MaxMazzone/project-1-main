@@ -25,6 +25,7 @@ const resetGame = function (event) {
   resetDivs()
   store.gameStore = null
   ui.sayWhosUp(userTurn)
+  $('#game-message').show()
   ui.hideGameMessage()
   api.createNewGame()
     .then(ui.createNewGameSuccess)
@@ -39,6 +40,7 @@ const resetGameOnSignOut = function (event) {
   resetDivs()
   store.gameStore = null
   ui.sayWhosUp(userTurn)
+  $('#game-message').show()
   ui.hideGameMessage()
 }
 const addTokenToArray = function (userClick, userTurn) {
@@ -96,6 +98,7 @@ const runGame = function () {
         addTokenToArray(this.id, userTurn)
         checkForWinner(userTurn)
         thereIsTie = gameArray.every(arrayValueIsNull)
+        ui.announceTie(thereIsTie)
         api.onNewMove(id, userTurn, thereIsWinner, thereIsTie)
         changeTurn()
         // console.log(gameArray)
@@ -105,6 +108,7 @@ const runGame = function () {
         addTokenToArray(this.id, userTurn)
         checkForWinner(userTurn)
         thereIsTie = gameArray.every(arrayValueIsNull)
+        ui.announceTie(thereIsTie)
         api.onNewMove(id, userTurn, thereIsWinner, thereIsTie)
         changeTurn()
         // console.log(gameArray)
@@ -116,7 +120,6 @@ const runGame = function () {
     }
   } else if (thereIsWinner === true) {
   } else {
-    ui.announceTie()
   }
 }
 // console.log(userTurn)

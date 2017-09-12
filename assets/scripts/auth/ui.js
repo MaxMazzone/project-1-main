@@ -10,16 +10,16 @@ const signUpSuccess = function (data) {
   $('#sign-up').hide()
 }
 
-const signUpFailure = function (error) {
+const signUpFailure = function () {
   // console.error(error)
   $('#message').show()
-  $('#message').text('You Failed at that sign up. ' + error)
+  $('#message').text('You Failed at that sign up.')
   $('#message').delay(5000).fadeOut('slow')
 }
-const signInFailure = function (error) {
+const signInFailure = function () {
   // console.error(error)
   $('#message').show()
-  $('#message').text('You Failed at that signing in. ' + error)
+  $('#message').text('You Failed at that signing in.')
   $('#message').delay(5000).fadeOut('slow')
 }
 const signInSuccess = function (data) {
@@ -86,7 +86,7 @@ const getGamesSuccess = function (data) {
   $('#complete-games').delay(8000).fadeOut('slow')
 }
 
-const getGamesFailure = function (error) {
+const getGamesFailure = function () {
   // console.error(error)
   $('#message').show()
   $('#message').text('You Failed At Getting The Games')
@@ -107,10 +107,14 @@ const sayWhosUp = function (userTurn) {
 const announceWinner = function (userTurn) {
   $('#game-announcement').text(userTurn + ' is the winner!')
   $('#game-announcement').show()
+  $('#game-message').hide()
 }
-const announceTie = function () {
-  $('#game-announcement').text('There is a Tie! Restart to keep playing.')
-  $('#game-announcement').show()
+const announceTie = function (thereIsTie) {
+  if (thereIsTie === true) {
+    $('#game-announcement').text('There is a Tie! Restart to keep playing.')
+    $('#game-announcement').show()
+    $('#game-message').hide()
+  }
 }
 const hideGameMessage = function () {
   $('#game-announcement').hide()
